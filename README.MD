@@ -1,27 +1,15 @@
-# Phaser 3 boilerplate
-> This is a template for Phaser.js game engine
+# Phaser JS Dungeon crawler
+<sub><sup>Demo [here](https://reverent-shannon-ae1588.netlify.com/)</sup></sub>
+## 🙏 Visitors 🙏
+I leave this project on a public repository in case it may serve for some people. You can use it as you want but please, don't take the assets!
+Those are from [itch.io](https://itch.io) and have been made by [Pita](https://itch.io/profile/pita). If you want them, please buy them to help this talented creator! Don't steal them.
 
-#### Requirements
-You only need **node.js** installed on your computer and it's ok.
-
-#### Installation
-install dependencies:
-```
-yarn install
-```
-
-#### Development
-Run the webpack-dev-server on http://lcoalhost:8001
-```
+## Setup
+```bash
+# start local server
 yarn start
-```
-
-#### Production
-Build the app
-```
+# build for developpment mode
+yarn dev
+# build for production mode
 yarn build
 ```
-
-#### documentation
-[Oficial documentation](https://photonstorm.github.io/phaser3-docs/index.html)
-[Tutorials](https://phasergames.com/)
