@@ -7,9 +7,9 @@ Those are from [itch.io](https://itch.io) and have been made by [Pita](https://i
 ## Setup
 ```bash
 # start local server
-yarn start
-# build for developpment mode
 yarn dev
+# build for developpment mode
+yarn build:dev
 # build for production mode
 yarn build
 ```
