@@ -93,7 +93,7 @@ export default class Player {
 
       // If we were moving & now we're not, then pick a single idle frame to use
       if (prevVelocity.y < 0) this.sprite.anims.play("player-idle-face", true)
-      else this.sprite.anims.play("player-idle", true)
+      else this.sprite.anims.play("player-idle-face", true)
     }
   }
 
