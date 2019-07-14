@@ -7,8 +7,8 @@ import 'phaser'
 var config = {
     type: Phaser.AUTO,
     parent: 'game',
-    width: 800,
-    height: 640,
+    width: 1024,
+    height: 768,
     pixelArt: true,
     scene: [DungeonScene, Hud],
     physics: {

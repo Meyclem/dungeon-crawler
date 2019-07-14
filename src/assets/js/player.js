@@ -15,18 +15,30 @@ export default class Player {
       repeat: -1
     })
     anims.create({
+      key: "player-walk-side",
+      frames: anims.generateFrameNumbers("characters", { start: 12, end: 15 }),
+      frameRate: 8,
+      repeat: -1
+    })
+    anims.create({
       key: "player-walk-back",
       frames: anims.generateFrameNumbers("characters", { start: 16, end: 19 }),
       frameRate: 8,
       repeat: -1
     })
+    anims.create({
+      key: "player-idle-face",
+      frames: anims.generateFrameNumbers("characters", { frames: [0, 1, 2, 1] }),
+      frameRate: 3,
+      repeat: -1
+    })
 
     this.sprite = scene.physics.add
       .sprite(x, y, "characters", 0)
-      .setSize(16, 16)
-      .setOffset(16, 16)
+      .setSize(14, 12)
+      .setOffset(17, 20)
 
-    this.sprite.anims.play("player-walk-back")
+    this.sprite.anims.play("player-idle-face")
 
     this.keys = scene.input.keyboard.createCursorKeys()
   }
@@ -46,14 +58,17 @@ export default class Player {
 
     // Stop any previous movement from the last frame
     sprite.body.setVelocity(0)
-
     // Horizontal movement
     if (keys.left.isDown) {
       sprite.body.setVelocityX(-speed)
-      sprite.setFlipX(true)
+      if (sprite.anims.currentAnim.key === 'player-walk-side') {
+        sprite.setFlipX(true)
+      }
     } else if (keys.right.isDown) {
       sprite.body.setVelocityX(speed)
-      sprite.setFlipX(false)
+      if (sprite.anims.currentAnim.key === 'player-walk-side') {
+        sprite.setFlipX(false)
+      }
     }
 
     // Vertical movement
@@ -67,16 +82,18 @@ export default class Player {
     sprite.body.velocity.normalize().scale(speed)
 
     // Update the animation last and give left/right/down animations precedence over up animations
-    if (keys.left.isDown || keys.right.isDown || keys.down.isDown) {
+    if (keys.down.isDown) {
       sprite.anims.play("player-walk", true)
     } else if (keys.up.isDown) {
       sprite.anims.play("player-walk-back", true)
+    } else if (keys.left.isDown || keys.right.isDown) {
+      sprite.anims.play("player-walk-side", true)
     } else {
-      sprite.anims.stop()
+      // sprite.anims.stop()
 
       // If we were moving & now we're not, then pick a single idle frame to use
-      if (prevVelocity.y < 0) sprite.setTexture("characters", 0)
-      else sprite.setTexture("characters", 0)
+      if (prevVelocity.y < 0) this.sprite.anims.play("player-idle-face", true)
+      else this.sprite.anims.play("player-idle", true)
     }
   }
 

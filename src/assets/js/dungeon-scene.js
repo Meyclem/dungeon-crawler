@@ -38,18 +38,18 @@ export default class DungeonScene extends Phaser.Scene {
       }
     })
 
-    const html = this.dungeon.drawToHtml({
-      empty: " ",
-      wall: "📦",
-      floor: "☁️",
-      door: "🚪",
-      emptyAttributes: { style: 'font-size:2px' },
-      floorAttributes: { style: 'font-size:2px' },
-      doorAttributes: { style: 'font-size:2px' },
-      wallAttributes: { style: 'font-size:2px' }
-    })
+    // const html = this.dungeon.drawToHtml({
+    //   empty: " ",
+    //   wall: "📦",
+    //   floor: "☁️",
+    //   door: "🚪",
+    //   emptyAttributes: { style: 'font-size:2px' },
+    //   floorAttributes: { style: 'font-size:2px' },
+    //   doorAttributes: { style: 'font-size:2px' },
+    //   wallAttributes: { style: 'font-size:2px' }
+    // })
 
-    document.body.appendChild(html)
+    // document.body.appendChild(html)
 
     const map = this.make.tilemap({
       tileWidth: 16,

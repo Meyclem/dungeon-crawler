@@ -8,7 +8,7 @@ export default class Hud extends Phaser.Scene {
   create ()
   {
     this.add
-    .text(16, 16, "Arrow keys to move", {
+    .text(10, 10, "Arrow keys to move", {
       font: "14px monospace",
       fill: "#000000",
       padding: { x: 20, y: 10 },
